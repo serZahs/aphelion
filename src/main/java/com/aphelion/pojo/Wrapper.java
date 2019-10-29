@@ -31,9 +31,9 @@ public class Wrapper {
     @Override
     public String toString() {
         return "\n{" + "\n"
-                + "\t314: " + sol_info.get("314").toString()
-                + "\t315: " + sol_info.get("315").toString()
-                + "\t316: " + sol_info.get("316").toString()
+                + "\t314: " + sol_info.get("321").toString()
+                + "\t315: " + sol_info.get("322").toString()
+                + "\t316: " + sol_info.get("324").toString()
                 + "\tsol_keys: [" + String.join(",", sol_keys) + "]\n"
                 + "}\n";
     }
