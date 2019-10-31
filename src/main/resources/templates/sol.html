@@ -34,43 +34,33 @@
     <p th:text="'Date: ' + ${firstUTC}"></p>
     <p th:text="'Season: ' + ${season}"></p>
 
-    <div style="display:flex;">
-        <div style="flex: 1;">
-            <h2>Atmos. Temperature</h2>
-        </div>
-        <div style="flex: 1;">
-            <h2>Wind Speed</h2>
-        </div>
-        <div style="flex: 1;">
-            <h2>Atmos. Pressure</h2>
-        </div>
-    </div>
-    <div style="display:flex;">
-        <div style="flex: 1;">
-            <p th:text="'Average: ' + ${avgTemp} + '&#176F'"></p>
-            <p th:text="'Min: ' + ${minTemp} + '&#176F'"></p>
-            <p th:text="'Max: ' + ${maxTemp} + '&#176F'"></p>
-        </div>
-        <div style="flex: 1;">
-            <p th:text="'Average: ' + ${avgWind} + 'm/s'"></p>
-            <p th:text="'Min: ' + ${minWind} + 'm/s'"></p>
-            <p th:text="'Max: ' + ${maxWind} + 'm/s'"></p>
-        </div>
-        <div style="flex: 1;">
-            <p th:text="'Average: ' + ${avgPress} + 'Pa'"></p>
-            <p th:text="'Min: ' + ${minPress} + 'Pa'"></p>
-            <p th:text="'Max: ' + ${maxPress} + 'Pa'"></p>
-        </div>
-    </div>
+    <table style="text-align:center; width: 100%;">
+        <tr>
+            <th>Atmos. Temperature</th>
+            <th>Wind Speed</th>
+            <th>Atmos. Pressure</th>
+        </tr>
+        <tr>
+            <td>
+                <p th:text="'Average: ' + ${avgTemp} + '&#176F'"></p>
+                <p th:text="'Min: ' + ${minTemp} + '&#176F'"></p>
+                <p th:text="'Max: ' + ${maxTemp} + '&#176F'"></p>
+            </td>
+            <td>
+                <p th:text="'Average: ' + ${avgWind} + 'm/s'"></p>
+                <p th:text="'Min: ' + ${minWind} + 'm/s'"></p>
+                <p th:text="'Max: ' + ${maxWind} + 'm/s'"></p>
+            </td>
+            <td>
+                <p th:text="'Average: ' + ${avgPress} + 'Pa'"></p>
+                <p th:text="'Min: ' + ${minPress} + 'Pa'"></p>
+                <p th:text="'Max: ' + ${maxPress} + 'Pa'"></p>
+            </td>
+        </tr>
+    </table>
 
     <div style="display:inline-flex;flex-direction:column;">
-        <a th:href="@{|/sol/${sol0}|}" th:text="'Sol ' + ${sol0}"></a>
-        <a th:href="@{|/sol/${sol1}|}" th:text="'Sol ' + ${sol1}"></a>
-        <a th:href="@{|/sol/${sol2}|}" th:text="'Sol ' + ${sol2}"></a>
-        <a th:href="@{|/sol/${sol3}|}" th:text="'Sol ' + ${sol3}"></a>
-        <a th:href="@{|/sol/${sol4}|}" th:text="'Sol ' + ${sol4}"></a>
-        <a th:href="@{|/sol/${sol5}|}" th:text="'Sol ' + ${sol5}"></a>
-        <a th:href="@{|/sol/${sol6}|}" th:text="'Sol ' + ${sol6}"></a>
+        <a th:each="sol : ${listOfSols}" th:href="@{|/sol/${sol}|}" th:text="'Sol ' + ${sol}"></a>
     </div>
 </body>
 </html>

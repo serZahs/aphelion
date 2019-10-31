@@ -11,16 +11,13 @@ import java.util.List;
 @Controller
 public class PageController {
 
-    private long vistorCount = 0;
     @Autowired
     private RestService service;
 
     @GetMapping(value = "/sol/{solNumber}")
     public String sol(Model model, @PathVariable String solNumber) {
-        List<String> sols = service.getSolData().getSol_keys();
-        for (int i = 0; i < sols.size(); i++) {
-            model.addAttribute("sol"+i, sols.get(i));
-        }
+        List<String> sols = service.getSolData().getSolKeys();
+        model.addAttribute("listOfSols", sols);
 
         try {
             model.addAttribute("solNum", solNumber);
@@ -46,12 +43,8 @@ public class PageController {
 
     @GetMapping(value = "/")
     public String home(Model model) {
-        vistorCount++;
-        model.addAttribute("vistorCount", vistorCount);
-        List<String> sols = service.getSolData().getSol_keys();
-        for (int i = 0; i < sols.size(); i++) {
-            model.addAttribute("sol"+i, sols.get(i));
-        }
+        List<String> sols = service.getSolData().getSolKeys();
+        model.addAttribute("listOfSols", sols);
         return "index";
     }
 }

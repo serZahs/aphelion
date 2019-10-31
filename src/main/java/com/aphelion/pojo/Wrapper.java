@@ -11,30 +11,25 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Wrapper {
 
-    private Map<String, Sol> sol_info = new HashMap<>();
+    private Map<String, Sol> solInfo = new HashMap<>();
     @JsonProperty("sol_keys")
-    private List<String> sol_keys;
+    private List<String> solKeys;
 
     @JsonAnySetter
     public void setSol_info(String k, Sol v) {
-        sol_info.put(k, v);
+        solInfo.put(k, v);
     }
 
     public Sol getSol(String s) {
-        return sol_info.get(s);
+        return solInfo.get(s);
     }
 
-    public List<String> getSol_keys() {
-        return sol_keys;
+    public List<String> getSolKeys() {
+        return solKeys;
     }
 
     @Override
     public String toString() {
-        return "\n{" + "\n"
-                + "\t314: " + sol_info.get("321").toString()
-                + "\t315: " + sol_info.get("322").toString()
-                + "\t316: " + sol_info.get("324").toString()
-                + "\tsol_keys: [" + String.join(",", sol_keys) + "]\n"
-                + "}\n";
+        return "";
     }
 }

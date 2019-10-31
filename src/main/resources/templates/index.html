@@ -23,15 +23,8 @@
         <p>View climate data for the past seven
             <a href="https://en.wikipedia.org/wiki/Sol_(day_on_Mars)">sols</a>
             on Mars.</p>
-            <a th:href="@{|/sol/${sol0}|}" th:text="'Sol ' + ${sol0}"></a>
-            <a th:href="@{|/sol/${sol1}|}" th:text="'Sol ' + ${sol1}"></a>
-            <a th:href="@{|/sol/${sol2}|}" th:text="'Sol ' + ${sol2}"></a>
-            <a th:href="@{|/sol/${sol3}|}" th:text="'Sol ' + ${sol3}"></a>
-            <a th:href="@{|/sol/${sol4}|}" th:text="'Sol ' + ${sol4}"></a>
-            <a th:href="@{|/sol/${sol5}|}" th:text="'Sol ' + ${sol5}"></a>
-            <a th:href="@{|/sol/${sol6}|}" th:text="'Sol ' + ${sol6}"></a>
+        <a th:each="sol : ${listOfSols}" th:href="@{|/sol/${sol}|}" th:text="'Sol ' + ${sol}"></a>
         <p>Uses the <a href="https://api.nasa.gov/#insight">InSight API.</a></p>
-        <p th:text="'This page has been visited ' + ${vistorCount} + ' times'"></p>
     </div>
 </body>
 </html>

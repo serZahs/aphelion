@@ -51,11 +51,6 @@ public class Sol {
 
     @Override
     public String toString() {
-        return
-                "{" + "\n"
-                + "\t\tSeason: " + season + "\n"
-                + "\t\tFirst_UTC: " + firstUTC + "\n"
-                + "\t\tLast_UTC: " + lastUTC + "\n"
-                + "\t}\n";
+        return "";
     }
 }
